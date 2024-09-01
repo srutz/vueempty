@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div class="text-3xl">hi</div>
+  <div class="text-3xl">hello world</div>
 </template>
 
 <style scoped>
