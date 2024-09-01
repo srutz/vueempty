@@ -1,9 +1,13 @@
 <script setup lang="ts">
+
+import UserForm from "./UserForm.vue"
+
 </script>
 
 <template>
-  <div class="text-3xl">hi</div>
+    <div class="flex flex-col gap-2">
+        <UserForm></UserForm>
+    </div>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
