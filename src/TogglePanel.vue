@@ -7,10 +7,12 @@ import {ref,computed} from "vue";
  *
  * - Buttontext ist eine berechnete ref und hat keinen
  *   eigenen Wert, sondern nur einen abgeleiteten Wert
+ * - Die Komponent definiert ihre Props mittels defineProps
+ *   auf typsichere Art
  */
 
-defineProps<{
-  caption: string;  // caption ist ein required-attribut
+const props = defineProps<{
+  caption: string;  // caption ist ein required-attribute
 }>()
 
 const toggle = ref(false)
@@ -20,13 +22,14 @@ const buttonText = computed(() => {
 
 const onToggle = () => {
   toggle.value = !toggle.value
+  debugger
 }
 
 </script>
 
 <template>
   <div class="flex flex-col gap-4 m-4 p-4 border border-gray-300 rounded-lg shadow-lg">
-    <div class="text-center text-xl pb-2 border-b border-gray-300">Mein Togglepanel</div>
+    <div class="text-center text-xl pb-2 border-b border-gray-300">{{ props.caption }}</div>
     <div v-if="toggle">
       <slot></slot>
     </div>
