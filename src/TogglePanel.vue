@@ -13,9 +13,9 @@ const onToggle = () => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-4 m-4 p-4 border-solid border-4 border-amber-700">
+  <div class="flex flex-col gap-4 m-4 p-4 border border-gray-400 rounded-lg shadow-lg">
     <div class="flex justify-end">
-      <div class="button" @click="onToggle()">
+      <div class="button text-xs w-16 text-center" @click="onToggle()">
         {{ buttonText }}
       </div>
     </div>
