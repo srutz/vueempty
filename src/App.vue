@@ -1,18 +1,17 @@
 <script setup lang="ts">
 
-import {ref} from "vue";
+import {ref, triggerRef} from "vue";
 
-const count = ref(8)
+const a = ref(10)
+const b = ref(10)
 
-
-const doCount = () => {
-  count.value++
-  console.log("button was clicked. newvalue=" + count.value)
-}
+const doButton1 = () => { a.value++ }
+const doButton2 = () => { b.value++ }
 
 </script>
 
 <template>
-  <button @click="doCount()" class="button">Count is {{ count }}</button>
+  <button @click="doButton1()" class="button">A={{a}}</button>
+  <button @click="doButton2()" class="button">B={{b}}</button>
 </template>
 
