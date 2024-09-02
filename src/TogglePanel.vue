@@ -1,7 +1,8 @@
 <script setup lang="ts">
-
 import {ref,computed} from "vue";
-
+import AppButton from "./AppButton.vue"
+import BorderBox from "./BorderBox.vue";
+import Header from "./Header.vue";
 /*
  * Toggle Panel mit einem Slot für den Inhalt
  *
@@ -10,34 +11,27 @@ import {ref,computed} from "vue";
  * - Die Komponent definiert ihre Props mittels defineProps
  *   auf typsichere Art
  */
-
 const props = defineProps<{
   caption: string;  // caption ist ein required-attribute
 }>()
 
-const toggle = ref(false)
+const toggle = ref(false)  // mein Zustand
 const buttonText = computed(() => {
   return toggle.value ? "Hide" : "Show"
-})
+}) // abgeleiter zustand
 
-const onToggle = () => {
-  toggle.value = !toggle.value
-  debugger
-}
-
+const onToggle = () => { toggle.value = !toggle.value }
 </script>
 
 <template>
-  <div class="flex flex-col gap-4 m-4 p-4 border border-gray-300 rounded-lg shadow-lg">
-    <div class="text-center text-xl pb-2 border-b border-gray-300">{{ props.caption }}</div>
+  <BorderBox>
+    <Header>{{props.caption}}</Header>
     <div v-if="toggle">
       <slot></slot>
     </div>
     <div class="flex justify-end">
-      <div class="button text-xs w-16 text-center" @click="onToggle()">
-        {{ buttonText }}
-      </div>
+      <AppButton :text="buttonText" @pressed="onToggle()" />
     </div>
-  </div>
+  </BorderBox>
 </template>
 
