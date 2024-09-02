@@ -7,14 +7,14 @@ import TogglePanel from "./TogglePanel.vue"
 
 <template>
   <div>
-    <TogglePanel>
+    <TogglePanel caption="Viele Lorems">
       <p>Lorem ipsum lorem Lorem ipsum lorem</p>
       <p>Lorem ipsum lorem Lorem ipsum lorem</p>
       <p>Lorem ipsum lorem Lorem ipsum lorem</p>
       <p>Lorem ipsum lorem Lorem ipsum lorem</p>
       <p>Lorem ipsum lorem Lorem ipsum lorem</p>
     </TogglePanel>
-    <TogglePanel>
+    <TogglePanel caption="Wiesbadentruth">
       <p>Wiesbaden ist 100% Hessen</p>
     </TogglePanel>
   </div>
