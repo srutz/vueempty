@@ -1,17 +1,22 @@
 <script setup lang="ts">
 
-import {ref, triggerRef} from "vue";
-
-const a = ref(10)
-const b = ref(10)
-
-const doButton1 = () => { a.value++ }
-const doButton2 = () => { b.value++ }
+import {onMounted, ref } from "vue";
+import TogglePanel from "./TogglePanel.vue"
 
 </script>
 
 <template>
-  <button @click="doButton1()" class="button">A={{a}}</button>
-  <button @click="doButton2()" class="button">B={{b}}</button>
+  <div>
+    <TogglePanel>
+      <p>Lorem ipsum lorem Lorem ipsum lorem</p>
+      <p>Lorem ipsum lorem Lorem ipsum lorem</p>
+      <p>Lorem ipsum lorem Lorem ipsum lorem</p>
+      <p>Lorem ipsum lorem Lorem ipsum lorem</p>
+      <p>Lorem ipsum lorem Lorem ipsum lorem</p>
+    </TogglePanel>
+    <TogglePanel>
+      <p>Wiesbaden ist 100% Hessen</p>
+    </TogglePanel>
+  </div>
 </template>
 
