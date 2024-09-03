@@ -4,58 +4,58 @@ Einführung in Vue.js 3 und TypeScript
 
 # Kapitel 1: Willkommen
 
-Grundlagen und fortgeschrittene Techniken
-Moderne Webentwicklung mit Vue.js 3 und TypeScript
-Praktische Anwendungsfälle
+- Grundlagen und fortgeschrittene Techniken
+- Moderne Webentwicklung mit Vue.js 3 und TypeScript
+- Praktische Anwendungsfälle
 
 # Kapitel 2: Was ist Vue.js 3?
-Progressives JavaScript-Framework
-Erstellung von Benutzeroberflächen
-Leistungsverbesserungen und Composition API
+- Progressives JavaScript-Framework
+- Erstellung von Benutzeroberflächen
+- Leistungsverbesserungen und Composition API
 
 # Kapitel 3: Vorteile von TypeScript
-Statische Typisierung für JavaScript
-Weniger Fehler im Code
-Verbesserte Codequalität und Wartbarkeit
+- Statische Typisierung für JavaScript
+- Weniger Fehler im Code
+- Verbesserte Codequalität und Wartbarkeit
 
 # Kapitel 4: Setup und Konfiguration
-Einrichtung eines neuen Vue 3 Projekts
-TypeScript-Unterstützung aktivieren
-Wichtige Konfigurationsoptionen
+- Einrichtung eines neuen Vue 3 Projekts
+- TypeScript-Unterstützung aktivieren
+- Wichtige Konfigurationsoptionen
 
 # Kapitel 5: Erste Schritte mit der Composition API
-Grundkonzepte der Composition API
-Verbesserung der Code-Organisation
-Wiederverwendung von Logik
+- Grundkonzepte der Composition API
+- Verbesserung der Code-Organisation
+- Wiederverwendung von Logik
 
 # Kapitel 6: Reaktive Referenzen und Zustände
-Umgang mit ref und reactive
-Erstellen reaktiver Daten
-Beispiele für Zustandsmanagement
-Computed Properties
-Einsatz von Watchers für Datenänderungen
-Nutzung von Lifecycle-Hooks
+- Umgang mit ref und reactive
+- Erstellen reaktiver Daten
+- Beispiele für Zustandsmanagement
+- Computed Properties
+- Einsatz von Watchers für Datenänderungen
+- Nutzung von Lifecycle-Hooks
 
 # Kapitel 7: Komponenten
-Erstellung von wiederverwendbaren Komponenten als SFC (Single File Components)
-Verwendung von Props und Slots
-Binding von Attributen und Textinhalten
-Interaktion mit Events und Benutzereingaben
+- Erstellung von wiederverwendbaren Komponenten als SFC (Single File Components)
+- Verwendung von Props und Slots
+- Binding von Attributen und Textinhalten
+- Interaktion mit Events und Benutzereingaben
 
 # Kapitel 8: Composables
-Erstellung von wiederverwendbaren Logikteilen
-Einsatzmöglichkeiten von Composables
-Praktische Beispiele
+- Erstellung von wiederverwendbaren Logikteilen
+- Einsatzmöglichkeiten von Composables
+- Praktische Beispiele
 
 # Kapitel 9: Interaktion mit Templates
-Daten- und Methodenbindung
-Dynamische Benutzeroberflächen
-Beispiele für Template-Interaktionen
+- Daten- und Methodenbindung
+- Dynamische Benutzeroberflächen
+- Beispiele für Template-Interaktionen
 
 # Kapitel 10: Projektstruktur
-Organisationsstrategien
-Best Practices für die Projektstruktur
-Effiziente Datei- und Ordnerorganisation
+- Organisationsstrategien
+- Best Practices für die Projektstruktur
+- Effiziente Datei- und Ordnerorganisation
 
 
 # Kapitel 0: Dokumentation, Blogs, Tutorials
@@ -85,20 +85,19 @@ Effiziente Datei- und Ordnerorganisation
 
 Die Philosophie: 
 
-- Templates für deklarative Oberflüchen mit eigenen Komponenten (Tags)
+- Templates für deklarative Oberflächen mit eigenen Komponenten (Tags)
 - Reaktivität für automatische Aktualisierung der UI bei Änderungen im Code
 
 # Kapitel 1.1: Warum Vue.js 3?
 
-Das Programmiermodell: 
+- Das Programmiermodell
+- Single File Components mit 3 Sektionen
 
-- Single File Components mit 3 Sektionen:
+ 1. Template für die Darstellung (HTML mit Vue-Direktiven)
+ 2. Script für die Logik (am besten in TypeScript)
+ 3. Style für das Styling (Styled können "scoped" sein)
 
-1. Template für die Darstellung (HTML mit Vue-Direktiven)
-2. Script für die Logik (am besten in TypeScript)
-3. Style für das Styling (Styled können "scoped" sein)
-
-Single File Components haben die Endung .vue und werden von der Vue-CLI in Javascript umgewandelt. (Oder mittels Vite, Webpack oder anderen Bundlern mit entsprechenden Plugins)
+- Single File Components haben die Endung .vue und werden von der Vue-CLI in Javascript umgewandelt. (Oder mittels Vite, Webpack oder anderen Bundlern mit entsprechenden Plugins)
 
 
 
