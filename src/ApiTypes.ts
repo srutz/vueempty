@@ -4,3 +4,10 @@ export type QuoteType = {
     quote: string
     author: string
 }
+
+export type QuoteResponse = {
+    quotes: QuoteType[]
+    total: number
+    skip: number
+    limit: number
+}
