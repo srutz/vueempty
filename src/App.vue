@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {onMounted} from "vue"
+import {onMounted, ref} from "vue"
 
 type Quote = {
   id: number
@@ -13,17 +13,23 @@ type QuoteResponse = {
   limit: number
 }
 
+const quotes = ref<Quote[]>([])
+
+
 onMounted(async () => {
   const res = await fetch("https://dummyjson.com/quotes?limit=5")
   const json = await res.json()
   const quotesResponse = json as QuoteResponse
   console.table(quotesResponse.quotes)
+  quotes.value = quotesResponse.quotes
 })
 
 </script>
 
 <template>
-  <div class="text-3xl">hi</div>
+  <div>
+    <pre>{{ quotes }}</pre>
+  </div>
 </template>
 
 <style scoped>
