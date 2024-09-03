@@ -6,7 +6,7 @@ export const CHUNK_SIZE = 2
 export const useQuotesData = (offset: ref<number>) => {
     const loading = ref(false)
     const error = ref()
-    const data = ref<Quote[]>([])
+    const data = ref<Quote[]>([]);
     (async() => {
         watchEffect(async () => {
             loading.value = true
