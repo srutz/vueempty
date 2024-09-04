@@ -21,5 +21,13 @@ export const users: UserType[] = [
         admin: true,
         firstname: "Karla",
         lastname: "Musterfrau"
+    },
+    {
+        id: 3,
+        email: "fridolin.fridolinhansen@gmx.de",
+        admin: false,
+        firstname: "Fridolin",
+        lastname: "Fridolinhansen"
+
     }
 ]

@@ -2,6 +2,7 @@
 
 import {useRouter} from "vue-router";
 import {users} from "../UsersData.ts";
+import BorderBox from "../BorderBox.vue";
 
 const router = useRouter()
 
@@ -12,11 +13,20 @@ const showAbout = () => {
 </script>/
 <template>
   <div class="flex flex-col gap-2 items-center justify-center grow ">
+    <div class="grow"></div>
     USERS PAGE
-    <div v-for="user in users" :key="user.email">
-      <RouterLink :to="'/users/' + user.id">
-        {{user.email}}
-      </RouterLink>
+    <div class="flex flex-col gap-4">
+      <BorderBox>
+        <div class="flex flex-col gap-2">
+          <div v-for="user in users" :key="user.email">
+            <RouterLink :to="'/users/' + user.id + '/details'">
+              {{user.email}}
+            </RouterLink>
+          </div>
+        </div>
+      </BorderBox>
+      <router-view></router-view>
     </div>
+    <div class="grow"></div>
   </div>
 </template>

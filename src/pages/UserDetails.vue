@@ -2,15 +2,22 @@
 
 import {UserType,users} from "../UsersData.ts";
 import {useRoute} from "vue-router";
+import { ref, watchEffect} from "vue";
+import BorderBox from "../BorderBox.vue";
 
 const route = useRoute()
-const userid = route.params.id || -1
-const user: UserType = users.find((user) => user.id == userid)
+const user = ref<UserType>();
+
+// we drive along with the route.params which is reactive
+watchEffect(() => {
+  const userid = route.params.id || -1
+  user.value = users.find((user) => user.id == userid)
+})
 
 </script>
 
 <template>
-  <div class="flex flex-col gap-2 items-center justify-center grow ">
+  <BorderBox>
     <div v-if="!user">
       Unbekannter Benutzer
     </div>
@@ -38,6 +45,6 @@ const user: UserType = users.find((user) => user.id == userid)
         </tr>
       </tbody>
     </table>
-  </div>
+  </BorderBox>
 </template>
 

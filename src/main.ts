@@ -17,14 +17,23 @@ const router = createRouter({
     history: createWebHistory(),
     routes: [
         { path: "/", component: MainPage, meta: { title: "Home" } },
-        { path: "/users", component: UsersPage, meta: { title: "Users" }  },
-        { path: "/users/:id", component: UserDetails, meta: { title: "Userdetails" }  },
+        {
+            path: "/users",
+            component: UsersPage,
+            meta: { title: "Users" },
+            children: [
+                {   path: "/users/:id/details",
+                    component: UserDetails,
+                    meta: { title: "Userdetails" }
+                },
+            ]
+        },
         { path: "/about", component: AboutPage, meta: { title: "About" }  },
     ],
 
 })
 router.beforeEach((to, from, next) => {
-    console.log("nav from=" + from.path + ", to=" + to.path)
+    //console.log("nav from=" + from.path + ", to=" + to.path)
     // set title from user defined meta data
 
     const meta = to.meta as MetaDataType
