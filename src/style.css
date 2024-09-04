@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 1px;
+}
+
+a {
+    border-bottom: 2px solid transparent;
+}
+
+a:hover {
+    border-bottom: 2px solid black;
+}
+
