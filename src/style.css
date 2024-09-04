@@ -23,3 +23,10 @@ a:hover {
     border-bottom: 2px solid black;
 }
 
+.router-link-active {
+    border-bottom: 2px solid black;
+}
+
+button {
+    @apply px-2 py-2 text-lg font-medium leading-tight bg-amber-100 border border-amber-700;
+}

@@ -8,13 +8,28 @@ import MainPage from "./pages/MainPage.vue"
 import UsersPage from "./pages/UsersPage.vue"
 import AboutPage from "./pages/AboutPage.vue"
 
+type MetaDataType = {
+    title: string
+}
+
 const router = createRouter({
     history: createWebHistory(),
     routes: [
-        { path: "/", component: MainPage },
-        { path: "/users", component: UsersPage },
-        { path: "/about", component: AboutPage },
+        { path: "/", component: MainPage, meta: { title: "Home" } },
+        { path: "/users", component: UsersPage, meta: { title: "Users" }  },
+        { path: "/about", component: AboutPage, meta: { title: "About" }  },
     ]
+})
+router.beforeEach((to, from, next) => {
+    console.log("nav from=" + from.path + ", to=" + to.path)
+    // set title from user defined meta data
+
+    const meta = to.meta as MetaDataType
+    const { title } = meta
+    if (title) {
+        document.title = title
+    }
+    next()
 })
 
 const app = createApp(App)
