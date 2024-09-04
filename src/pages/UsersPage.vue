@@ -1,6 +1,7 @@
 <script setup lang="ts">
 
 import {useRouter} from "vue-router";
+import {users} from "../UsersData.ts";
 
 const router = useRouter()
 
@@ -10,8 +11,12 @@ const showAbout = () => {
 
 </script>/
 <template>
-  <div class="flex flex-col gap-2 items-center justify-center grow text-3xl">
+  <div class="flex flex-col gap-2 items-center justify-center grow ">
     USERS PAGE
-    <button @click="showAbout()">Show About Page</button>
+    <div v-for="user in users" :key="user.email">
+      <RouterLink :to="'/users/' + user.id">
+        {{user.email}}
+      </RouterLink>
+    </div>
   </div>
 </template>
