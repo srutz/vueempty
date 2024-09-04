@@ -6,7 +6,13 @@ import Menubar from "./Menubar.vue";
 <template>
   <div class="bg-white grow flex flex-col items-stretch">
     <Menubar></Menubar>
-    <router-view></router-view>
+    <div class="flex flex-col h-1 grow overflow-hidden">
+      <router-view v-slot="{ Component }">
+        <transition name="slide-fade" mode="out-in">
+          <component :is="Component" />
+        </transition>
+      </router-view>
+    </div>
   </div>
 </template>
 
