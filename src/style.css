@@ -1,3 +1,56 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+/*
+::view-transition-old(root) {
+    animation: fade-out 0.5s ease-out;
+}
+
+::view-transition-new(root) {
+    animation: fade-in 0.5s ease-in;
+}
+    */
+
+@keyframes grow {
+    from {
+        width: var(--view-transition-old-width);
+        height: var(--view-transition-old-height);
+    }
+
+    to {
+        width: var(--view-transition-new-width);
+        height: var(--view-transition-new-height);
+    }
+}
+
+
+.tbox {
+    view-transition-name: box;
+}
+
+::view-transition-old(box),
+::view-transition-new(box) {
+    animation: grow 0.5s ease-in-out;
+}
