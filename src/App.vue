@@ -1,9 +1,12 @@
 <script setup lang="ts">
+import SequenceBanner from './SequenceBanner.vue';
+
 </script>
 
 <template>
-  <div class="text-3xl">hi</div>
+    <div class="h-1 grow text-3xl bg-orange-300 flex flex-col items-center justify-center">
+        <SequenceBanner title="Lorem ipsum dolor sit amet" />
+    </div>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
