@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    @apply h-screen
+}
+
+#app {
+    @apply h-screen flex flex-col
+}
+
+button {
+    @apply p-2 m-2 bg-blue-500 rounded max-w-48 text-white
+}

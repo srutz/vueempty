@@ -24,12 +24,12 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-2">
-    <div v-for="p in products">
-        {{ p.title }} {{ formatGermanNumber(p.price)}}        
+  <div class="h-1 grow flex flex-col gap-2">
+    <button @click="page++">Next page</button>
+    <div class="h-1 grow overflow-scroll flex flex-col gap-2">
+        <div v-for="p in products">
+            {{ p.title }} {{ formatGermanNumber(p.price)}}        
+        </div>
     </div>
   </div>
 </template>
-
-<style scoped>
-</style>
