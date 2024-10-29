@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref, watch } from 'vue';
 import { Product, ProductsResponse } from './Types';
 
 function formatGermanNumber(n: number) {
@@ -10,22 +10,36 @@ function formatGermanNumber(n: number) {
     return nf.format(n)
 }
 
-const products = ref<Product[]>([])
+const PAGE_SIZE = 3
+
+/* 1: zustand, page und aktuelle products */
 const page = ref(1)
+const products = ref<Product[]>([])
 
-const PAGE_SIZE = 20
 
-onMounted(async () => {
-    const res = await fetch("https://dummyjson.com/products?" + (page.value - 1 * PAGE_SIZE))
+/* 2: Funktion um Produkte der Page N in den zustand zu laden */
+const loadProducts = async () => {
+
+    const res = await fetch("https://dummyjson.com/products"
+        + "?skip=" + ((page.value - 1) * PAGE_SIZE)
+        + "&limit=" + PAGE_SIZE)
     const data = await res.json() as ProductsResponse
-    products.value = data.products
+    products.value = [... products.value, ...data.products]
+}
+
+/* 3: Initiales laden */
+onMounted(async () => {
+    loadProducts()
 })
+
+/* 4: Neuladen wenn sich Page geändert hat */
+watch([page], () => loadProducts())
 
 </script>
 
 <template>
   <div class="h-1 grow flex flex-col gap-2">
-    <button @click="page++">Next page</button>
+    <button @click="page++">Load more {{ page }}</button>
     <div class="h-1 grow overflow-scroll flex flex-col gap-2">
         <div v-for="p in products">
             {{ p.title }} {{ formatGermanNumber(p.price)}}        
