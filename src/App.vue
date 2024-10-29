@@ -1,9 +1,15 @@
 <script setup lang="ts">
+import HeaderPanel from "./HeaderPanel.vue"
+
+// ▶▼ <-- my icons for later
+
+
 </script>
 
+
 <template>
-  <div class="text-3xl">hi</div>
+    <HeaderPanel header="Hello World">
+        <div>Lorem ipsum lorem dings</div>
+    </HeaderPanel>
 </template>
 
-<style scoped>
-</style>
