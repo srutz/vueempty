@@ -11,5 +11,5 @@ body {
 }
 
 button {
-    @apply p-2 m-2 bg-blue-500 rounded max-w-48 text-white
+    @apply p-2 m-2 bg-blue-500 rounded max-w-48 text-white disabled:text-gray-300
 }
