@@ -41,21 +41,30 @@ import { onMounted, onUnmounted, ref, type CSSProperties } from 'vue';
  * and the transition duration in the style of the tile
  * 
  */ 
-const { imageUrl, rows, columns, width, height, gap } =
+
+type GridImageProps = { 
+    imageUrl: string, 
+    rows?: number, 
+    columns?: number,
+    width?: number,
+    height?: number,
+    gap?: number 
+}
+
+const props =
     withDefaults(
-        defineProps<{ 
-            imageUrl: string, 
-            rows?: number, 
-            columns?: number,
-            width?: number,
-            height?: number,
-            gap?: number }>(), {
+        defineProps<GridImageProps>(), {
         rows: 10,
         columns: 10,
         width: 480,
         height: 480,
         gap: 1,
     })
+
+const { imageUrl, rows, columns, width, height, gap } = props
+
+
+
 
 const mounted = ref(false)
 
