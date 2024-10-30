@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 1px;
+}
+
+button {
+    @apply px-2 py-2 text-lg font-medium leading-tight bg-amber-100 border border-amber-700;
+}
+
