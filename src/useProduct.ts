@@ -2,6 +2,7 @@ import axios from "axios"
 import { onMounted, ref } from "vue"
 
 export type Product = {
+    id: number
     title: string
     thumbnail: string
     price: number
@@ -10,10 +11,15 @@ export type Product = {
 
 export function useProduct(id: number) {
     const product = ref<Product>()
+    const errorMessage = ref<string>()
     onMounted(async () => {
-        const p = await axios.get("https://dummyjson.com/products/" 
-            + encodeURIComponent(id)) as Product
-        product.value = p
+        try {
+            const p = await axios.get<Product>(
+                "https://dummyjson.com/products/" + encodeURIComponent(id))
+            product.value = p.data
+        } catch (e) {
+            errorMessage.value = e?.toString()
+        }
     })
-    return product
+    return { product, errorMessage }
 }
