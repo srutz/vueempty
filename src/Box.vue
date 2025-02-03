@@ -5,7 +5,7 @@
             {{ expanded ? "▾" : "▸" }}
             {{ title }}
         </div>
-        <div v-if="open" ><slot></slot></div>
+        <div v-if="open && size.height > 350" ><slot></slot></div>
         <div v-if="footer" class="text-gray-500 text-sm self-end">
             {{ footer }}</div>
     </div>
@@ -14,11 +14,14 @@
 <script lang="ts" setup>
 import { vAutoAnimate } from '@formkit/auto-animate';
 import { ref } from 'vue';
+import { useWindowSize } from './useWindowSize';
 type PropsType = { 
     title: string 
     footer?: string
     expanded?: boolean
 }
+
+const size = useWindowSize()
 
 let { title, expanded, footer = "Deutzer-Greetings"} = defineProps<PropsType>() 
 const open = ref(expanded)
