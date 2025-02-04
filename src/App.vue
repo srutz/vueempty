@@ -5,6 +5,7 @@ import Box from "./Box.vue"
 import ProductPanel from "./Product.vue" 
 import { Product, useProducts } from "./useProduct"
 import { defineComponent, ref } from "vue"
+import Menubar from './Menubar.vue'
 
 const { products } = useProducts([ 20, 33, 16, 13 ])
 
@@ -37,21 +38,24 @@ const closeProduct = (product: Product) => {
 </script>
 
 <template>
-    <div class="h-1 grow bg-gray-300 flex flex-wrap gap-4 overflow-y-auto" v-auto-animate>
-        <Box v-for="product in products" :title='"Produkt " + (product?.id || "")' expanded
-                @expanded="handleExpanded">
-            <template #content>
-                <ProductPanel :product="product" />
-                <button class="button" @click="closeProduct(product)">Close</button>
-            </template>
-            <template #footer>
-                <div class="text-lg text-red-600">
-                    {{ 
-                        f(product?.price) + ' €'
-                    }}
-                </div>
-            </template>
-        </Box>
+    <div class="h-1 grow flex flex-col">
+        <Menubar></Menubar>
+        <div class="h-1 grow bg-gray-300 flex flex-wrap gap-4 overflow-y-auto" v-auto-animate>
+            <Box v-for="product in products" :title='"Produkt " + (product?.id || "")' expanded
+                    @expanded="handleExpanded">
+                <template #content>
+                    <ProductPanel :product="product" />
+                    <button class="button" @click="closeProduct(product)">Close</button>
+                </template>
+                <template #footer>
+                    <div class="text-lg text-red-600">
+                        {{ 
+                            f(product?.price) + ' €'
+                        }}
+                    </div>
+                </template>
+            </Box>
+        </div>
     </div>
 </template>
 
