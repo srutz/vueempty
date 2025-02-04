@@ -3,6 +3,8 @@ import { inject, provide, Ref, ref } from "vue";
 // context for inject and provide.
 // inject and provide are not used directly
 
+// Poor man's Piniastore
+
 const KEY = "usercontext"
 
 export type UserContextType = {
@@ -22,5 +24,5 @@ export function useUserContext() {
     if (!context) {
         throw "no user context provided"
     }
-    return context
+    return context.value
 }

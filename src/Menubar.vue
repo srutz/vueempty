@@ -4,10 +4,10 @@
         <a>Home</a>
         <a>About</a>
         <div class="grow"></div>
-        <button class="button" @click="loggedIn=!loggedIn">{{ c.loggedIn ? "Logout" : "Login"}}</button>
-        <div v-if="c.loggedIn">{{c.user}}</div>
-        <teleport to="body" v-if="c.loggedIn">
-            <div class="text-white fixed p-1 bg-green-700 bottom-0 right-0">{{c.user}}</div>
+        <button class="button" @click="loggedIn=!loggedIn">{{ loggedIn ? "Logout" : "Login"}}</button>
+        <div v-if="loggedIn">{{user}}</div>
+        <teleport to="body" v-if="loggedIn">
+            <div class="text-white fixed p-1 bg-green-700 bottom-0 right-0">{{user}}</div>
         </teleport>
     </div>
 </template>
@@ -15,8 +15,6 @@
 import { toRefs } from 'vue';
 import { useUserContext } from './useUserContext';
 
-const c = useUserContext()
+const { loggedIn, user } = toRefs(useUserContext())
 
-// toRefs connects the ref "c" with loggedIn bidirectionally
-const { loggedIn } = toRefs(c.value)
 </script>
