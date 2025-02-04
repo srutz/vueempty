@@ -23,3 +23,20 @@ export function useProduct(id: number) {
     })
     return { product, errorMessage }
 }
+
+export function useProducts(ids: number[]) {
+    const products = ref<Product[]>([])
+    const errorMessage = ref<string>()
+    onMounted(async () => {
+        try {
+            for (const id of ids) {
+                const p = await axios.get<Product>(
+                    "https://dummyjson.com/products/" + encodeURIComponent(id))
+                products.value.push(p.data)
+            }
+        } catch (e) {
+            errorMessage.value = e?.toString()
+        }
+    })
+    return { products, errorMessage }
+}

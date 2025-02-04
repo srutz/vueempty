@@ -4,7 +4,7 @@
             {{ expanded ? "▾" : "▸" }}
             {{ title }}
         </div>
-        <div v-if="open" ><slot name="content"></slot></div>
+        <div v-if="open"><slot name="content"></slot></div>
         <div class="text-gray-500 text-sm self-end">
             <slot name="footer"></slot>
         </div>
