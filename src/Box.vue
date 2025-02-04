@@ -1,5 +1,5 @@
 <template>
-    <div class="shadow-xl rounded-lg bg-white p-4 m-4 gap-2 motion-preset-slide-right flex flex-col" v-auto-animate>
+    <div class="max-w-[400px] max-h-[320px] shadow-xl rounded-lg bg-white p-4 m-4 gap-2 motion-preset-slide-right flex flex-col" v-auto-animate>
         <div class="font-bold cursor-pointer text-lg select-none" @click="handleClick()">
             {{ expanded ? "▾" : "▸" }}
             {{ title }}
