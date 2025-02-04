@@ -9,17 +9,12 @@
     </div>
 </template>
 <script lang="ts" setup>
-import { watchEffect } from 'vue';
 import { Product } from './useProduct';
 import { useUserContext } from './useUserContext';
 
 const { product } = defineProps<{ product?: Product }>()
 
 const c = useUserContext()
-watchEffect(() => {
-    console.log("login changed", c.value.loggedIn)
-})
-console.log(c)
 
 
 </script>
