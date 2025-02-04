@@ -4,7 +4,7 @@ import Box from "./Box.vue"
 
 import ProductPanel from "./Product.vue" 
 import { Product, useProducts } from "./useProduct"
-import { defineComponent, ref } from "vue"
+import { defineComponent, provide, ref } from "vue"
 import Menubar from './Menubar.vue'
 
 const { products } = useProducts([ 20, 33, 16, 13 ])
@@ -34,6 +34,7 @@ const handleExpanded = (open: boolean, n: number) => {
 const closeProduct = (product: Product) => {
     products.value = products.value.filter(p => p.id != product.id)
 }
+
 
 </script>
 
