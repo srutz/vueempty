@@ -1,13 +1,13 @@
 <template>
-    <div class="shadow-xl rounded-lg bg-white p-4 m-4 gap-2
-        motion-preset-slide-right flex flex-col" v-auto-animate>
+    <div class="shadow-xl rounded-lg bg-white p-4 m-4 gap-2 motion-preset-slide-right flex flex-col" v-auto-animate>
         <div class="font-bold cursor-pointer text-lg select-none" @click="handleClick()">
             {{ expanded ? "▾" : "▸" }}
             {{ title }}
         </div>
-        <div v-if="open" ><slot></slot></div>
-        <div v-if="footer" class="text-gray-500 text-sm self-end">
-            {{ footer }}</div>
+        <div v-if="open" ><slot name="content"></slot></div>
+        <div class="text-gray-500 text-sm self-end">
+            <slot name="footer"></slot>
+        </div>
     </div>
 </template>
 
@@ -17,11 +17,10 @@ import { ref } from 'vue';
 
 type PropsType = { 
     title: string 
-    footer?: string
     expanded?: boolean
 }
 
-const { title, expanded, footer = "Deutzer-Greetings"} = defineProps<PropsType>() 
+const { title, expanded } = defineProps<PropsType>() 
 
 const open = ref(expanded)
 
