@@ -1,7 +1,7 @@
 <template>
     <div class="shadow-xl rounded-lg bg-white p-4 m-4 gap-2
         motion-preset-slide-right flex flex-col" v-auto-animate>
-        <div class="font-bold cursor-pointer text-lg select-none" @click="open = !open">
+        <div class="font-bold cursor-pointer text-lg select-none" @click="handleClick()">
             {{ expanded ? "▾" : "▸" }}
             {{ title }}
         </div>
@@ -14,13 +14,23 @@
 <script lang="ts" setup>
 import { vAutoAnimate } from '@formkit/auto-animate';
 import { ref } from 'vue';
+
 type PropsType = { 
     title: string 
     footer?: string
     expanded?: boolean
 }
 
+const { title, expanded, footer = "Deutzer-Greetings"} = defineProps<PropsType>() 
 
-let { title, expanded, footer = "Deutzer-Greetings"} = defineProps<PropsType>() 
 const open = ref(expanded)
+
+const emit = defineEmits<{
+    "expanded": [ open: boolean, n: number]
+}>()
+
+const handleClick = () => {
+    open.value = !open.value
+    emit("expanded", open.value, 100)
+}
 </script>

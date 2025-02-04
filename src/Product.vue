@@ -11,6 +11,5 @@
 import { Product } from './useProduct';
 
 const { product } = defineProps<{ product?: Product }>()
-console.log("product", product)
 
 </script>
