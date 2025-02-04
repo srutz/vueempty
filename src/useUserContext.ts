@@ -1,13 +1,26 @@
-import { provide } from "vue";
+import { inject, provide, Ref, ref } from "vue";
+
+// context for inject and provide.
+// inject and provide are not used directly
+
+const KEY = "usercontext"
 
 export type UserContextType = {
     user: string,
     loggedIn: boolean
 }
 
-export function useUserContext() {
-    provide("usercontext", {
+export function provideUserContext() {
+    provide(KEY, ref({
         user: "Stepan",
         loggedIn: false
-    } satisfies UserContextType)
+    } satisfies UserContextType))
+}
+
+export function useUserContext() {
+    const context = inject<Ref<UserContextType>>(KEY)
+    if (!context) {
+        throw "no user context provided"
+    }
+    return context
 }
