@@ -40,3 +40,4 @@ export function useProducts(ids: number[]) {
     })
     return { products, errorMessage }
 }
+

@@ -1,4 +1,4 @@
-import { onMounted, onUnmounted, reactive, ref } from "vue"
+import { onMounted, onUnmounted, reactive } from "vue"
 
 export function useWindowSize() {
     const size = reactive({ width: window.innerWidth, height: window.innerHeight })

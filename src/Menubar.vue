@@ -1,5 +1,5 @@
 <template>
-    <div class="h-16 border-b border-gray-500 bg-white flex gap-4 items-center px-4">
+    <div :data-yo="console.log('template mb')" class="h-16 border-b border-gray-500 bg-white flex gap-4 items-center px-4">
         <div class="font-bold">MyApp</div>
         <a>Home</a>
         <a>About</a>
@@ -12,9 +12,22 @@
     </div>
 </template>
 <script setup lang="ts">
-import { toRefs } from 'vue';
+import axios from 'axios';
+import { toRefs, watch } from 'vue';
 import { useUserContext } from './useUserContext';
 
-const { loggedIn, user } = toRefs(useUserContext())
+const { user, loggedIn } = toRefs(useUserContext())
+
+
+watch([ loggedIn], async () => {
+    if (loggedIn.value) {
+        const result = await axios.get("https://icanhazdadjoke.com", {
+            headers: {
+                "Accept": "application/json"
+            }
+        })
+        console.log("... loading extra infos", result.data)
+    }
+})
 
 </script>

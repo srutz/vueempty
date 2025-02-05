@@ -1,6 +1,6 @@
 import { inject, provide, Ref, ref } from "vue";
 
-// context for inject and provide.
+// context for inject and provide.{
 // inject and provide are not used directly
 
 // Poor man's Piniastore

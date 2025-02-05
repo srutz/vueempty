@@ -6,6 +6,7 @@ import Menubar from './Menubar.vue'
 import ProductPanel from "./Product.vue"
 import { Product, useProducts } from "./useProduct"
 import { provideUserContext } from "./useUserContext"
+import { defineComponent, h, ref } from "vue"
 
 provideUserContext()
 
@@ -37,6 +38,22 @@ const closeProduct = (product: Product) => {
     products.value = products.value.filter(p => p.id != product.id)
 }
 
+const Counter = defineComponent({
+    setup: () => {
+        const count = ref(99)
+        return () => {
+            const tree = h("div", {}, [
+                h("div", { onClick: () => count.value++ }, count.value),
+                h("div", { onClick: () => count.value++ }, count.value),
+                h("div", { onClick: () => count.value++ }, count.value),
+            ])
+            console.log(tree)
+            console.log(count)
+            return tree
+        }
+    },
+})
+
 
 </script>
 
@@ -44,6 +61,7 @@ const closeProduct = (product: Product) => {
     <div class="h-1 grow flex flex-col">
         <Menubar></Menubar>
         <div class="h-1 grow bg-gray-300 flex flex-wrap gap-4 overflow-y-auto" v-auto-animate>
+            <Counter></Counter>
             <Box v-for="product in products" :title='"Produkt " + (product?.id || "")' expanded
                     @expanded="handleExpanded">
                 <template #content>
