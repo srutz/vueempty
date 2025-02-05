@@ -7,6 +7,7 @@ import BorderBox from "../BorderBox.vue";
 
 const route = useRoute()
 const user = ref<UserType>();
+console.log(route)
 
 // we drive along with the route.params which is reactive
 watchEffect(() => {

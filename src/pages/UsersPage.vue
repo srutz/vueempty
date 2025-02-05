@@ -12,10 +12,9 @@ const showAbout = () => {
 
 </script>/
 <template>
-  <div class="flex flex-col gap-2 items-center justify-center grow ">
-    <div class="grow"></div>
+  <div class="flex flex-col gap-2 items-center justify-center grow mt-8">
     USERS PAGE
-    <div class="flex flex-col gap-4">
+    <div class="flex flex-row gap-4">
       <BorderBox>
         <div class="flex flex-col gap-2">
           <div v-for="user in users" :key="user.email">
@@ -25,7 +24,7 @@ const showAbout = () => {
           </div>
         </div>
       </BorderBox>
-      <router-view></router-view>
+      <RouterView></RouterView>
     </div>
     <div class="grow"></div>
   </div>

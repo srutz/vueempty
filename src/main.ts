@@ -1,13 +1,16 @@
 import { createApp } from 'vue'
-import './style.css'
 import App from './App.vue'
+import './style.css'
 
-import {createRouter, createWebHashHistory, createWebHistory} from "vue-router"
+import { createRouter, createWebHistory } from "vue-router"
 
-import MainPage from "./pages/MainPage.vue"
-import UsersPage from "./pages/UsersPage.vue"
-import UserDetails from "./pages/UserDetails.vue"
 import AboutPage from "./pages/AboutPage.vue"
+import MainPage from "./pages/MainPage.vue"
+import UserDetails from "./pages/UserDetails.vue"
+import UsersPage from "./pages/UsersPage.vue"
+import TestComponent from './TestComponent.vue'
+import ProductPanel from "./Product.vue"
+import Products from "./Products.vue"
 
 export type MetaDataType = {
     title: string
@@ -17,6 +20,13 @@ const router = createRouter({
     history: createWebHistory(),
     routes: [
         { path: "/", component: MainPage, meta: { title: "Home" } },
+        { path: "/test", component: TestComponent },
+        {
+            path: "/products", component: Products
+        },
+        { path: "/product/:id", component: ProductPanel,
+            name: "SingleProduct"
+        },
         {
             path: "/users",
             component: UsersPage,
