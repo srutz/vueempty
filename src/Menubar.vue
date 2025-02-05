@@ -12,13 +12,14 @@
     </div>
 </template>
 <script setup lang="ts">
-import axios from 'axios';
-import { toRefs, watch } from 'vue';
+import { toRefs } from 'vue';
 import { useUserContext } from './useUserContext';
 
+//const store = useUserContext()
 const { user, loggedIn } = toRefs(useUserContext())
 
 
+/*
 watch([ loggedIn], async () => {
     if (loggedIn.value) {
         const result = await axios.get("https://icanhazdadjoke.com", {
@@ -29,5 +30,6 @@ watch([ loggedIn], async () => {
         console.log("... loading extra infos", result.data)
     }
 })
+    */
 
 </script>
