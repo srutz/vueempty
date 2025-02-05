@@ -10,9 +10,8 @@
 <script setup lang="ts">
 import axios from 'axios';
 import ProductPanel from './Product.vue'
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref, watch, watchEffect } from 'vue';
 import { useRoute } from 'vue-router';
-
 export type Product = {
     id: number
     title: string
@@ -28,21 +27,25 @@ type ProductsReponse = {
     total: number,
 }
 
+const PAGE_SIZE = 6
 const route = useRoute()
-const page = Number.parseInt(route.query.page as string || "1")
-
-const limit = 6
-const skip = (page - 1) * limit
-
 const products = ref<Product[]>([])
-onMounted(async () => {
+
+const loader = async () => {
+    const page = Number.parseInt(route.query.page as string || "1")
+    const skip = (page - 1) * PAGE_SIZE
     const response = await axios.get("https://dummyjson.com/products", {
         params: {
             skip,
-            limit,
+            limit: PAGE_SIZE,
         }
     })
     products.value = (response.data as ProductsReponse).products
+}
+// route is an reactive proxy
+watchEffect(() => {
+    // loader depends on route.query and uses it
+    loader()
 })
 
 </script>

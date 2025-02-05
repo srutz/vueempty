@@ -20,9 +20,9 @@ const router = createRouter({
     history: createWebHistory(),
     routes: [
         { path: "/", component: MainPage, meta: { title: "Home" } },
-        { path: "/test", component: TestComponent },
+        { path: "/test", component: TestComponent, meta: { title: "Test" } },
         {
-            path: "/products", component: Products
+            path: "/products", component: Products, meta: { title: "Products"}
         },
         { path: "/product/:id", component: ProductPanel,
             name: "SingleProduct"
@@ -43,7 +43,7 @@ const router = createRouter({
 
 })
 router.beforeEach((to, from, next) => {
-    //console.log("nav from=" + from.path + ", to=" + to.path)
+    console.log("nav from=" + from.path + ", to=" + to.path)
     // set title from user defined meta data
 
     const meta = to.meta as MetaDataType

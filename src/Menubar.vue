@@ -1,7 +1,17 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
 
-import {CSSProperties} from "vue";
 
+const router = useRouter()
+
+const openPage = () => {
+  router.push({ 
+    path: "/products",
+    query: {
+      page: 2
+    }
+  })
+}
 </script>
 
 <template>
@@ -11,6 +21,8 @@ import {CSSProperties} from "vue";
     <RouterLink to="/">Main</RouterLink>
     <router-link to="/users">Users</router-link>
     <router-link to="/about">About</router-link>
+    <RouterLink to="/products?page=1">Page 1</RouterLink>
+    <div class="cursor-pointer" @click="openPage" >Page 2</div>
   </div>
 </template>
 
